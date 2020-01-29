@@ -1,0 +1,219 @@
+SPRING SECURITY.XML
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+  xmlns:beans="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/security
+           http://www.springframework.org/schema/security/spring-security.xsd">
+    
+
+    <http auto-config="true">
+       <intercept-url pattern="/" access="permitAll" />
+        <intercept-url pattern="/admin**" access="hasRole('ROLE_ADMIN')" />
+        
+    </http>
+<authentication-manager>
+        <authentication-provider>
+            <user-service>
+                <user name="admin" password="admin1234" authorities="ROLE_ADMIN" />
+            </user-service>
+        </authentication-provider>   
+ </authentication-manager>
+    </beans:beans>
+    
+    
+    SPRING CONTROLLER.JAVA
+    
+    
+    package com.cts.controller;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class SecurityController {
+	
+	@RequestMapping(value="/", method = RequestMethod.GET)
+    public String visitHomePage() {
+        return "index";
+    }
+ 
+    @RequestMapping(value="/admin", method = RequestMethod.GET)
+    public String visitAdministratorPage(ModelMap modelObj) {       
+        modelObj.addAttribute("welcomeTitle", "Admministrator Control Panel");
+        modelObj.addAttribute("messageObj", "This Page Demonstrates How To Use Spring Security!");
+        return "admin";
+    }
+}
+
+}
+
+
+WEB.XML
+
+
+
+ 
+
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+ 
+  <listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener
+		</listener-class>
+	</listener>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/spring-security.xml</param-value>
+	</context-param>
+	
+  <filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy
+		</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+  
+  <servlet>
+		<servlet-name>dispatcher</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>dispatcher</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+</web-app>
+
+
+
+DISPATCHERSERVLET
+
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd
+                           http://www.springframework.org/schema/mvc
+                           http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+	<mvc:annotation-driven></mvc:annotation-driven>
+	<context:component-scan base-package="com.cts.*"></context:component-scan>
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix">
+			<value>/WEB-INF/view/</value>
+		</property>
+		<property name="suffix">
+			<value>.jsp</value>
+		</property>
+	</bean>
+</beans>
+
+
+POM.XML
+
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:security="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                      http://maven.apache.org/maven-v4_0_0.xsd
+                      http://maven.apache.org/maven-v4_0_0.security">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.cts</groupId>
+	<artifactId>Security1</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Security1 Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+	<properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<spring.version>4.3.4.RELEASE</spring.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-config -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>4.0.1.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.0.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.7.4</version>
+		</dependency>
+    
+    
+    ADMIN
+    
+    
+    
+    <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+welcome to admin page!!!!
+</body>
+</html>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.0.1</version>
+			<scope>provided</scope>
+
+		</dependency>
+		<build>
+			<plugins>
+				<plugin>
+					<groupId>com.cts</groupId>
+					<artifactId>Security1</artifactId>
+				</plugin>
+			</plugins>
+		</build>
+
+	</dependencies>
+	<build>
+		<finalName>Security1</finalName>
+	</build>
+</project>
