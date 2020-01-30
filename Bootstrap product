@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+</head>
+<body>
+
+<h2>BABY DRESSES</h2>
+
+<div class="row">
+  <div class="column">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTmVlb06_8IFm49hK4JIUb72nkZqCxZ42k96khQXwctN_6uS0IM" style="width:50%">
+    
+  <p class="price">$19.99</p>
+  <p>Some text about the dress. red colour dress.</p>
+  <p><button>Add to Cart</button></p>
+  </div>
+
+  <div class="column">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSnsoLVwLFvpjBUOsCQBMZao9o30MJFdqQIMVYWeEZuXqL3ICOe" alt="Forest" style="width:50%">
+    <p>class="price">$29.99</p>
+    <p>Some text about the dress. red colour dress.</p>
+   <p><button>Add to Cart</button></p>
+  </div>
+
+  <div class="column">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS4W92aza39asDqhTEtdgyXXfGI5v1upowMCNoay_xLhhU5Z3iW" alt="Mountains" style="width:50%">
+   <p class="price">$16.99</p>
+  <p>Some text about the dress.navy blue colour dress.</p>
+  <p><button>Add to Cart</button></p>
+    
+  </div>
