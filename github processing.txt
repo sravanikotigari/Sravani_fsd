@@ -1,0 +1,71 @@
+
+D:\project>git clone "https://github.com/sravanikotigari/SravaniKotigari"
+Cloning into 'SravaniKotigari'...
+remote: Enumerating objects: 15, done.
+remote: Counting objects: 100% (15/15), done.
+remote: Compressing objects: 100% (14/14), done.
+remote: Total 15 (delta 3), reused 5 (delta 0), pack-reused 0
+Unpacking objects: 100% (15/15), done.
+
+D:\project>git add Hibernatw1
+fatal: pathspec 'Hibernatw1' did not match any files
+
+D:\project>git add Hibernate1
+
+D:\project>git commit -m "hibernate"
+[master f79826d] hibernate
+ 7 files changed, 196 deletions(-)
+ delete mode 100644 Hibernate1/.classpath
+ delete mode 100644 Hibernate1/.project
+ delete mode 100644 Hibernate1/.settings/org.eclipse.jdt.core.prefs
+ delete mode 100644 Hibernate1/bin/com/cts/hibernate/App.class
+ delete mode 100644 Hibernate1/bin/com/cts/hibernate/Entity.class
+ delete mode 100644 Hibernate1/src/com/cts/hibernate/App.java
+ delete mode 100644 Hibernate1/src/com/cts/hibernate/Entity.java
+
+D:\project>git push
+To https://github.com/sravanikotigari/SravaniKotigari.git
+ ! [rejected]        master -> master (non-fast-forward)
+error: failed to push some refs to 'https://github.com/sravanikotigari/SravaniKotigari.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+D:\project>git add Hibernate1.rar
+
+D:\project>git commit -m "hibernate"
+[master 76f17f0] hibernate
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ delete mode 100644 Hibernate1.rar
+
+D:\project>git push
+To https://github.com/sravanikotigari/SravaniKotigari.git
+ ! [rejected]        master -> master (non-fast-forward)
+error: failed to push some refs to 'https://github.com/sravanikotigari/SravaniKotigari.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+D:\project>cd SravaniKotigari
+
+D:\project\SravaniKotigari>git add Hibernate1.rar
+
+D:\project\SravaniKotigari>git commit -m "hibernate"
+[master f40fe52] hibernate
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 Hibernate1.rar
+
+D:\project\SravaniKotigari>git push
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 3.34 KiB | 1.67 MiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/sravanikotigari/SravaniKotigari
+   74b0002..f40fe52  master -> master
+
+D:\project\SravaniKotigari>
