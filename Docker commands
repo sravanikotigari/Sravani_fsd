@@ -1,0 +1,68 @@
+Microsoft Windows [Version 10.0.18363.657]
+(c) 2019 Microsoft Corporation. All rights reserved.
+
+D:\docker>jar cfm HelloWorld.jar manifets.txt HelloWorld.java
+java.io.FileNotFoundException: manifets.txt (The system cannot find the file specified)
+        at java.io.FileInputStream.open0(Native Method)
+        at java.io.FileInputStream.open(FileInputStream.java:195)
+        at java.io.FileInputStream.<init>(FileInputStream.java:138)
+        at java.io.FileInputStream.<init>(FileInputStream.java:93)
+        at sun.tools.jar.Main.run(Main.java:175)
+        at sun.tools.jar.Main.main(Main.java:1288)
+
+D:\docker>jar cfm HelloWorld.jar manifet.txt HelloWorld.java
+java.io.FileNotFoundException: manifet.txt (The system cannot find the file specified)
+        at java.io.FileInputStream.open0(Native Method)
+        at java.io.FileInputStream.open(FileInputStream.java:195)
+        at java.io.FileInputStream.<init>(FileInputStream.java:138)
+        at java.io.FileInputStream.<init>(FileInputStream.java:93)
+        at sun.tools.jar.Main.run(Main.java:175)
+        at sun.tools.jar.Main.main(Main.java:1288)
+
+D:\docker>jar cfm HelloWorld.jar manifest.txt HelloWorld.java
+java.io.FileNotFoundException: manifest.txt (The system cannot find the file specified)
+        at java.io.FileInputStream.open0(Native Method)
+        at java.io.FileInputStream.open(FileInputStream.java:195)
+        at java.io.FileInputStream.<init>(FileInputStream.java:138)
+        at java.io.FileInputStream.<init>(FileInputStream.java:93)
+        at sun.tools.jar.Main.run(Main.java:175)
+        at sun.tools.jar.Main.main(Main.java:1288)
+
+D:\docker>jar cfm HelloWorld.jar manifest.txt HelloWorld.java
+java.io.FileNotFoundException: manifest.txt (The system cannot find the file specified)
+        at java.io.FileInputStream.open0(Native Method)
+        at java.io.FileInputStream.open(FileInputStream.java:195)
+        at java.io.FileInputStream.<init>(FileInputStream.java:138)
+        at java.io.FileInputStream.<init>(FileInputStream.java:93)
+        at sun.tools.jar.Main.run(Main.java:175)
+        at sun.tools.jar.Main.main(Main.java:1288)
+
+D:\docker>javac HelloWorld.java
+
+D:\docker>jar cfm HelloWorld.jar manifest.txt HelloWorld.class
+java.io.FileNotFoundException: manifest.txt (The system cannot find the file specified)
+        at java.io.FileInputStream.open0(Native Method)
+        at java.io.FileInputStream.open(FileInputStream.java:195)
+        at java.io.FileInputStream.<init>(FileInputStream.java:138)
+        at java.io.FileInputStream.<init>(FileInputStream.java:93)
+        at sun.tools.jar.Main.run(Main.java:175)
+        at sun.tools.jar.Main.main(Main.java:1288)
+
+D:\docker>jar cfm HelloWorld.jar manifest.txt HelloWorld.class
+
+D:\docker>java -jar HelloWorld.jar
+Hello World :)
+
+D:\docker>move Dockerfile.txt to Dockerfile
+The syntax of the command is incorrect.
+
+D:\docker>move Dockerfile.txt to Docker
+The syntax of the command is incorrect.
+
+D:\docker>move Dockerfile to Docker
+The syntax of the command is incorrect.
+
+D:\docker>move Dockerfile.txt  Docker
+        1 file(s) moved.
+
+D:\docker>
